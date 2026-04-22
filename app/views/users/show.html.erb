@@ -2,9 +2,15 @@
 
 <%= render @user %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @user.microposts.first.content %>
+<%# 最初のマイクロポストを表示 %>
+<% if @user.microposts.first %>
+  <div id="<%= dom_id @user.microposts.first %>">
+    <p>
+      <strong>Content:</strong>
+      <%= @user.microposts.first.content %>
+    </p>
+  </div>
+<% end %>
 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
